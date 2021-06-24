@@ -1,0 +1,46 @@
+version: '3.7'
+
+services:
+
+  ts-node-docker:
+    image: node_typescript_postgres
+    container_name: node_typescript_postgres
+    build:
+      context: .
+      dockerfile: container-build/Dockerfile
+    volumes:
+      - ./src:/app/src
+    networks:
+      my-network:
+        ipv4_address: 172.16.241.100
+        ipv6_address: 2001:3984:4090::100
+    depends_on:
+      - "db"
+    expose:
+      - '3000'
+    ports:
+      - '3000:3000'
+    command: npm run dev:server
+
+  db:
+    image: postgres
+    restart: always
+    container_name: postgres
+    networks:
+      my-network:
+        ipv4_address: 172.16.241.101
+        ipv6_address: 2001:3984:4090::101
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: test
+    ports:
+      - 5432:5432
+
+networks:
+  my-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.241.0/24
+        - subnet: "2001:3984:4090::/64"
