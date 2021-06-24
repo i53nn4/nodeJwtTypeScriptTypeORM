@@ -1,6 +1,6 @@
 # Node.js + TypeScript + TypORM + Postgres
 
-## Rename file env_example to .env
+> Rename file env_example to .env
 
 ## Start project
 
