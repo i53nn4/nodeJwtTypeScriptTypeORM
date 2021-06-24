@@ -2,12 +2,23 @@
 
 ## Rename file env_example to .env
 
-```bash
-$ docker-composer up --build
+## Start project
+
+Building an image
+
+```sh
+$ docker-compose build
 ```
 
-## Run
+Running a container
 
-```bash
-$ docker-composer up --build
+```sh
+$ docker-compose up
 ```
+
+Stopping a container
+
+```sh
+$ docker-compose down
+```
+
