@@ -16,7 +16,7 @@ Running a container
 $ docker-compose up
 ```
 
-Running migration
+Running the migration
 
 ```sh
 $ npm run typeorm migration:run
