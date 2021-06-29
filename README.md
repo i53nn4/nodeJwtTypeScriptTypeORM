@@ -16,6 +16,12 @@ Running a container
 $ docker-compose up
 ```
 
+Running migration
+
+```sh
+$ npm run typeorm migration:run
+```
+
 Stopping a container
 
 ```sh
