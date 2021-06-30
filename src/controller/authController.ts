@@ -21,9 +21,9 @@ export class AuthController {
 
         const isValidPassword = await bcrypt.compare(user.password, newAuth.password);
 
-        // if (!isValidPassword) {
-        //     return res.sendStatus(401);
-        // }
+        if (!isValidPassword) {
+            return res.sendStatus(401);
+        }
 
         const token = this.authService.getJwt(newAuth);
 
