@@ -9,7 +9,8 @@ services:
       context: .
       dockerfile: container-build/Dockerfile
     volumes:
-      - ./src:/app/src
+      - .:/app
+      - /app/node_modules
     networks:
       my-network:
         ipv4_address: 172.16.241.100

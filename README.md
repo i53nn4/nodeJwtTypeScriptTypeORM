@@ -7,13 +7,13 @@
 Building an image
 
 ```sh
-$ docker-compose build
+$ docker compose build
 ```
 
 Running a container
 
 ```sh
-$ docker-compose up
+$ docker compose up -d
 ```
 
 Running the migration
@@ -25,6 +25,6 @@ $ npm run typeorm migration:run
 Stopping a container
 
 ```sh
-$ docker-compose down
+$ docker compose down
 ```
 

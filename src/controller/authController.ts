@@ -29,7 +29,7 @@ export class AuthController {
 
         return res.json({
             user: {
-                is: newAuth.id,
+                id: newAuth.id,
                 email: newAuth.email
             },
             token
