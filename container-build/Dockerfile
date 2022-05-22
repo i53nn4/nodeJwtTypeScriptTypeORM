@@ -12,10 +12,8 @@ RUN npm config set unsafe-perm true
 
 # install application dependencies
 COPY package.json ./
+COPY package-lock.json ./
 RUN npm install --silent
-
-# add app
-COPY . ./
 
 # add permission
 RUN chown -R node /app/node_modules
