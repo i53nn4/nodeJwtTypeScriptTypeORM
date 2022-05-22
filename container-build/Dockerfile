@@ -18,5 +18,5 @@ RUN npm install --silent
 COPY ./src ./src
 
 # add permission
-RUN chown -R node /usr/src/app/node_modules
+RUN chown -R node:node /usr/src/app/node_modules
 USER node
