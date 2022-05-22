@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.8'
 
 services:
 
@@ -9,8 +9,8 @@ services:
       context: .
       dockerfile: container-build/Dockerfile
     volumes:
-      - .:/app
-      - /app/node_modules
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     networks:
       my-network:
         ipv4_address: 172.16.241.100
