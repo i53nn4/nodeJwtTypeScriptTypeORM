@@ -13,14 +13,14 @@ services:
       - /usr/src/app/node_modules
     networks:
       my-network:
-        ipv4_address: 172.16.241.100
-        ipv6_address: 2001:3984:4090::100
+        ipv4_address: ${HOST_IP_V4}
+        ipv6_address: ${HOST_IP_V6}
     links:
       - db
     expose:
-      - 3000
+      - ${HOST_PORT}
     ports:
-      - 3000:3000
+      - ${HOST_PORT}:${HOST_PORT}
     command: npm run dev:server
 
   db:
@@ -29,19 +29,19 @@ services:
     container_name: postgres
     networks:
       my-network:
-        ipv4_address: 172.16.241.101
-        ipv6_address: 2001:3984:4090::101
+        ipv4_address: ${DB_IP_V4}
+        ipv6_address: ${DB_IP_V6}
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: test
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     ports:
-      - 5432:5432
+      - ${DB_PORT}:${DB_PORT}
 
 networks:
   my-network:
     ipam:
       driver: default
       config:
-        - subnet: 172.16.241.0/24
-        - subnet: 2001:3984:4090::/64
+        - subnet: ${DOCKER_SUBNET_IP_V4}
+        - subnet: ${DOCKER_SUBNET_IP_V6}
